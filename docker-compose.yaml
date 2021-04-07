@@ -1,0 +1,14 @@
+version: "3.8"
+
+x-build: &build
+  context: ./
+
+services:
+  messenger:    
+    image: bazel/services/messenger:image
+    volumes:
+      - ~/.config/gcloud:/home/myuser/.config/gcloud
+    environment:
+      - GOOGLE_CLOUD_PROJECT="cleric-development"
+    ports:
+      - 3000:3000
